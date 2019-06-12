@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+import os
+import click
+
+from datetime import datetime
+
+from pyspark_sqlflow.bin.cli import CLI
+
+
+@click.group()
+def main():
+   pass
+
+@main.command()
+@click.argument('job-conf')
+@click.option('--backfill', is_flag=True, help='backfill or not')
+@click.option('--exec-date', default=datetime.now().strftime('%Y-%m-%d'), help='given date')
+def run(job_conf, backfill, exec_date):
+    if not backfill:
+        backfill = False
+    os.environ['JOB'] = job_conf.split('.')[0]
+    cli = CLI()
+    cli.run(job_conf=job_conf, backfill=backfill, exec_date=exec_date)
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,2 @@
+include pyspark_sqlflow/jars/*
+include pyspark_sqlflow/utils/log.ini
