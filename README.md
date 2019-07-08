@@ -4,7 +4,7 @@ writing `.toml config` to transfer data between different databases using pyspar
 > connect to db through spark jdbc
 
 * connectors is defined in `pyspark_sqlflow/engine/connector/*`
-* corresponding processors is defined in `pyspark_sqlflow/engin/processor/*`
+* corresponding processors is defined in `pyspark_sqlflow/engine/processor/*`
 > available connectors and processor: hive, postgresql, teradata
 >> it's ok to include your own connectors and processors
 
